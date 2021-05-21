@@ -1,4 +1,4 @@
-/* const btn = document.querySelector("#sub");
+const btn = document.querySelector("#sub");
 const inpt1= document.getElementById("firstName");
 const inpt2= document.getElementById("lastName");
 const txt = document.getElementById("validate");
