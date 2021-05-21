@@ -33,4 +33,4 @@ inpt2.onchange=()=>{
 btn.onclick=()=>{
     container.remove();
     welcome.innerHTML=`Hello ${inpt1.value} ${inpt2.value} .`;
-} */
+}
