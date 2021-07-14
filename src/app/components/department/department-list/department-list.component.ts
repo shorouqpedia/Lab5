@@ -26,7 +26,7 @@ export class DepartmentListComponent implements OnInit {
 
   EditDept(index:number,id:HTMLElement,name:HTMLElement,idp:HTMLInputElement,namep:HTMLInputElement,note:HTMLElement)
   {
-    if(id.offsetParent?.parentElement?.children[4].firstChild?.firstChild?.textContent=="edit")
+    if(id.offsetParent?.parentElement?.children[3].firstChild?.firstChild?.textContent=="edit")
     {
       note.innerText="Press \"Esc\" key to cancel the edit";
       note.classList.remove("d-none");
