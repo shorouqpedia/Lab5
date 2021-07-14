@@ -1,0 +1,51 @@
+
+<div class="container col-8" *ngIf="!addFlag">
+    <h1 class="text-center my-5">Students</h1>
+    <h3 class="alert alert-warning text-center d-none" #note ></h3>
+    <table class="table table-bordered table-secondary text-center">
+        <thead>
+            <th>#</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th colspan="2"></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of departments;let i = index">
+                <td width=15%>
+                    {{i+1}}
+                </td>
+                <td width=15%>
+                    <div #idData>
+                        {{std.id}}
+                    </div>                      
+                    <input [(ngModel)]="tempDept.id" #idInpt class="form-control d-none">
+                </td>
+                <td>
+                    <div #nameData>
+                        {{std.name}}
+                    </div>
+                    <input [(ngModel)]="tempDept.name" #nameInpt class="form-control d-none">
+                </td>
+                <td width=10%>
+                    <button *ngIf="editState()" mat-icon-button color="primary" (click)="EditDept(i,idData,nameData,idInpt,nameInpt,note)">
+                        <mat-icon id="edit">edit</mat-icon>
+                    </button>
+                    <button *ngIf="EditFlag[i]>0" mat-icon-button color="primary" (click)="EditDept(i,idData,nameData,idInpt,nameInpt,note)">
+                        <mat-icon id="done">done</mat-icon>
+                    </button>
+                </td>
+                <td width=10%>
+                    <button mat-icon-button color="accent" (click)="DelDept(std.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <button color="basic" mat-button (click)="SwapFlag()">Add Student <mat-icon>person_add</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-department-add (onDeptAdd)="recieveFlag($event)" *ngIf="addFlag" [addFlag]=addFlag></app-department-add>

@@ -1,0 +1,23 @@
+<div class="container col-4 my-5 border" >
+    <h1 class="my-2 text-center">Add new student</h1>
+    
+    <div class="mx-3 mb-3">
+        <label for="id" class="form-label">ID </label>
+        <input [(ngModel)]="NewStd.id" type="number" id="id" class="form-control" >
+    </div>
+
+    <div class="mx-3 mb-3">
+        <label for="name" class="form-label">Name </label>
+        <input [(ngModel)]="NewStd.name" type="text" id=name class="form-control" >
+    </div>
+
+    <div class="mx-3 mb-3">
+        <label for="Age" class="form-label">Age </label>
+        <input type="number" [(ngModel)]="NewStd.age" id=Age class="form-control" >
+    </div>
+    <div class="my-3 text-center ">
+        <button color="primary" class="m-2" mat-raised-button (click)="AddStd()" >Submit</button>
+        <button color="primary" class="m-2" mat-stroked-button (click)="cancel()" >Cancel</button>
+
+    </div>
+</div>

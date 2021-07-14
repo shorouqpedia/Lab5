@@ -1,0 +1,3 @@
+<app-navbar (navChoice)="navChoice($event)" ></app-navbar>
+<app-student-list *ngIf="nav=='std'" ></app-student-list>
+<app-department-list *ngIf="nav=='dept'"></app-department-list>

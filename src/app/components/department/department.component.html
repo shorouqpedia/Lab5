@@ -1,0 +1,68 @@
+<h1 class="text-center my-5">Departments !</h1>
+
+<div class="container col-8">
+    <table class="table table-bordered table-secondary text-center">
+        <thead>
+            <th>#</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th colspan="2"></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of Departments;let i = index">
+                <td width=10%>
+                    {{i+1}}
+                </td>
+                <td width=10%>
+                    <div #idData>
+                        {{std.id}}
+                    </div>                      
+                    <input [(ngModel)]="Departments[i].id" #idInpt class="form-control d-none">
+                </td>
+                <td>
+                    <div #nameData>
+                        {{std.name}}
+                    </div>
+                    <input [(ngModel)]="Departments[i].name" #nameInpt class="form-control d-none">
+                </td>
+                <td width=10%>
+                    <button mat-icon-button color="primary" (click)="EditStd(i,idData,nameData,idInpt,nameInpt)">
+                        <mat-icon id="edit">{{EditIcon[i]}}</mat-icon>
+                    </button>
+                </td>
+                <td width=10%>
+                    <button mat-icon-button color="accent" (click)="DelStd(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <button class="w-50" color="basic" mat-icon-button (click)="SwapFlag()">{{flagTitle}} <mat-icon>person_add</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container col-4 my-5 border" *ngIf="addFlag">
+    <h1 class="my-2 text-center">Add new Department</h1>
+    
+    <div class="mx-3 mb-3">
+        <label for="id" class="form-label">ID </label>
+        <input [(ngModel)]="NewStd.id" type="number" id="id" class="form-control" >
+    </div>
+
+    <div class="mx-3 mb-3">
+        <label for="name" class="form-label">Name </label>
+        <input [(ngModel)]="NewStd.name" type="text" id=name class="form-control" >
+    </div>
+
+    <div class="my-3 text-center">
+        <button class=" btn btn-success" (click)="AddStd()" >Submit</button>
+    </div>
+</div>
+
+<div class="my-5 text-center">Thank You! </div>
+
